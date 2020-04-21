@@ -2,7 +2,7 @@ spring:
   datasource:
     sqlScriptEncoding: UTF-8
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/testdb?useSSL=false&requireSSL=false
+    url: jdbc:mysql://127.0.0.1:3306/cruddb?useSSL=false&requireSSL=false
     username: root
     password: hoge
   # アプリケーション起動時にデータベースを初期化しないようにする
