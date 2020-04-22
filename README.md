@@ -3,6 +3,8 @@
 
 ②PostgreSQL 9.6
 
+③PostgreSQL JDBC
+
 ## ◆システム概要
 Spring bootにて、spring jpaでpostgresに接続し、CRUD操作を行う。
 
@@ -27,14 +29,10 @@ Liveデータについては、以下の内容とする。
 | summary | String | 概要 |
 
 ## ◆起動 コマンド
-①dockerを使用しない場合  
-　「PostgreSQL」を導入しているものとする。
-
-②dockerを使用する場合  
-　「docker-compose コマンド」を参照し、dockerを起動する。
+dockerを使用する場合、「docker-compose コマンド」を参照し、dockerを起動する。
 
 APIについて、「curl コマンド」を使用してデータのやり取りを行う。  
-データを確認することについては「PostgreSQL コマンド」を参照する。
+データ確認については「PostgreSQL コマンド」を参照する。
 
 #### docker-compose コマンド
 | 概要 | コマンド |
@@ -65,7 +63,7 @@ APIについて、「curl コマンド」を使用してデータのやり取り
 #### PostgreSQL
 以下のコマンドらを使い、DBに保存されているデータを確認することができる。
 
-※dockerを使用する場合は、下記のコマンドでdockerにアクセスする。
+※dockerを使用する場合は、下記のコマンドでdockerにアクセスする。  
 　Windowsの場合、下記のコマンドだとエラーになる場合がある。  
 　その場合、先頭に「winpty 」をつけて実行してください。
 > docker exec -it dbserver bash
