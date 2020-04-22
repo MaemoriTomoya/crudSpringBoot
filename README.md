@@ -1,12 +1,12 @@
-## 導入環境
+## ◆導入環境
 ①Java OpenJDK 12.0.1
 
 ②PostgreSQL 9.6
 
-## システム概要
+## ◆システム概要
 Spring bootにて、spring jpaでpostgresに接続し、CRUD操作を行う。
 
-## サービス内容（イメージ）
+## ◆サービス内容（イメージ）
 配信サイト（ページ）のデータ扱いについて、以下の仕様のAPIとする。
 
 | HTTPメソッド | URI | 内容 |
@@ -26,8 +26,15 @@ Liveデータについては、以下の内容とする。
 | url | String | URL |
 | summary | String | 概要 |
 
-## 起動 コマンド
-下記の「docker-composeコマンド」を実行後、
+## ◆起動 コマンド
+①dockerを使用しない場合  
+　「PostgreSQL」を導入しているものとする。
+
+②dockerを使用する場合  
+　「docker-compose コマンド」を参照し、dockerを起動する。
+
+APIについて、「curl コマンド」を使用してデータのやり取りを行う。  
+データを確認することについては「PostgreSQL コマンド」を参照する。
 
 #### docker-compose コマンド
 | 概要 | コマンド |
@@ -37,26 +44,8 @@ Liveデータについては、以下の内容とする。
 | 停止 | docker-compose down |
 | 強制停止 | docker-compose kill |
 
-#### docker コマンド
-以下は、dockerにアクセスするコマンドです。
-
-※Windowsの場合、下記のコマンドだとエラーになる場合があります。  
-　その場合、先頭に「winpty 」をつけて実行してみてください。
-
-> docker exec -it dbserver bash
-
-#### PostgreSQL コマンド
-以下のコマンドを用い、データの確認をすることができます。
-
-| 概要 | コマンド |
-| ------------- | ------------- |
-| DB接続 | psql -p 5432 -U root -d cruddb |
-| テーブル一覧表示 | \dt |
-| データ確認 | select * from [テーブル名] |
-| DB切断 | \q |
-
 #### curl コマンド
-下記のコマンドにてサーバへデータ転送を行い（apiを叩き）、動作を確認することが可能です。
+下記のコマンドにてサーバへデータ転送を行い（apiを叩き）、動作を確認することができる。
 
 ①Liveデータを保存する
 > curl -X POST -H 'Content-Type:application/json' -d '{"name":"名称", "url":"URL", "summary":"概要"}' localhost:8080/live
@@ -72,3 +61,20 @@ Liveデータについては、以下の内容とする。
 
 ⑤指定した id のLiveデータを削除する
 > curl -X DELETE -H 'Content-Type:application/json' localhost:8080/live/{id}
+
+#### PostgreSQL
+以下のコマンドを使い、データの確認をすることができる。
+
+※dockerを使用する場合は、下記のコマンドでdockerにアクセスする。
+　Windowsの場合、下記のコマンドだとエラーになる場合がある。  
+　その場合、先頭に「winpty 」をつけて実行してください。
+> docker exec -it dbserver bash
+
+以下は、PostgreSQL接続中に扱うコマンドである。
+
+| 概要 | コマンド |
+| ------------- | ------------- |
+| DB接続 | psql -p 5432 -U root -d cruddb |
+| テーブル一覧表示 | \dt |
+| データ確認 | select * from [テーブル名] |
+| DB切断 | \q |
