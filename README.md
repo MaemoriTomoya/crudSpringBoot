@@ -63,14 +63,14 @@ APIについて、「curl コマンド」を使用してデータのやり取り
 > curl -X DELETE -H 'Content-Type:application/json' localhost:8080/live/{id}
 
 #### PostgreSQL
-以下のコマンドを使い、データの確認をすることができる。
+以下のコマンドらを使い、DBに保存されているデータを確認することができる。
 
 ※dockerを使用する場合は、下記のコマンドでdockerにアクセスする。
 　Windowsの場合、下記のコマンドだとエラーになる場合がある。  
 　その場合、先頭に「winpty 」をつけて実行してください。
 > docker exec -it dbserver bash
 
-以下は、PostgreSQL接続中に扱うコマンドである。
+以下は、PostgreSQLに関して使用するコマンドである。
 
 | 概要 | コマンド |
 | ------------- | ------------- |
