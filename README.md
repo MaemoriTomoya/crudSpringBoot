@@ -1,3 +1,7 @@
+## ◆前提
+以下を参考に、若干のアレンジを加えたものを作ることを目的とする。
+> https://qiita.com/kuro227/items/a16e22ac12afe7442a3d
+
 ## ◆導入環境
 ①Java OpenJDK 12.0.1
 
